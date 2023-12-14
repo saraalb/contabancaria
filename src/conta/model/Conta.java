@@ -18,6 +18,11 @@ public class Conta {
 		this.saldo = saldo;
 		this.ativa = ativa;
 	}
+	
+	//metodo construtor vazio
+	public Conta() {
+	}
+
 
 	//encapsulamento
 	public int getNumero() {
