@@ -1,5 +1,7 @@
 package conta.model;
 
+import conta.util.Cores;
+
 public class Conta {
 	//declaraçao de atributos
 	private int numero;
@@ -7,16 +9,14 @@ public class Conta {
 	private int tipo;
 	private String titular;
 	private float saldo;
-	private boolean ativa;
 	
 	//metodo construtor
-	public Conta(int numero, int agencia, int tipo, String titular, float saldo, boolean ativa) {
+	public Conta(int numero, int agencia, int tipo, String titular, float saldo) {
 		this.numero = numero;
 		this.agencia = agencia;
 		this.tipo = tipo;
 		this.titular = titular;
 		this.saldo = saldo;
-		this.ativa = ativa;
 	}
 	
 	//metodo construtor vazio
@@ -65,24 +65,51 @@ public class Conta {
 		this.saldo = saldo;
 	}
 	
-	public boolean getAtiva() {
-		return ativa;
+	//metodo sacar
+	public float Sacar(float valor) {
+		if (this.getSaldo() < valor) {
+			System.out.println("Você não tem saldo suficiente.");
+			return valor;
+		} 
+		this.setSaldo(this.getSaldo()-valor);
+		System.out.println("Valor sacado com sucesso!");
+		
+		visualizar();
+		return valor;
 	}
 	
-	public void setAtiva(boolean ativa) {
-		this.ativa = ativa;
+	//metodo depositar
+	public float Depositar(float valor) {
+		this.setSaldo(this.getSaldo()+valor);
+		visualizar();
+		return valor;
 	}
+	
+	
 	
 	public void visualizar() {
+		
+		//tipo de conta
+		String tipo ="";
+		
+		switch(this.tipo) {
+		case 1:
+			tipo = "Conta corrente";
+			break;
+		case 2:
+			tipo = "Conta poupança";
+			break;
+		}
+		System.out.println(Cores.TEXT_YELLOW +"\n----------------------------"+Cores.RESET);
 	    System.out.println("Detalhes da Conta Bancária:");
-	    System.out.println("----------------------------");
+	    System.out.println(Cores.TEXT_YELLOW +"----------------------------"+Cores.RESET);
 	    System.out.printf("Número da Conta: "+ this.numero);
 	    System.out.printf("\nAgência: "+ this.agencia);
 	    System.out.printf("\nTipo de Conta: "+ tipo);
 	    System.out.printf("\nTitular: "+ this.titular);
 	    System.out.printf("\nSaldo Atual: R$ %.2f", this.saldo);
-	    System.out.println("\nConta ativa? "+ this.ativa);
-	    
-	    System.out.println("----------------------------");
+	    System.out.println(Cores.TEXT_YELLOW+"\n----------------------------\n"+Cores.RESET);
 	}
+	
+
 }
