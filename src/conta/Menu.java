@@ -8,10 +8,10 @@ import conta.util.Cores;
 public class Menu {
 	
 	public static void main(String[] args) {
-		Conta c1 = new Conta(1234,5678,1,"Sara", 99999.9f);
+		//Conta c1 = new Conta(1234,5678,1,"Sara", 99999.9f);
 		
 		//c1.visualizar();
-		Conta c2 = new Conta();
+		//Conta c2 = new Conta();
 		//c2.visualizar();
 		
 		//ContaCorrente cc1 = new ContaCorrente();
@@ -19,11 +19,11 @@ public class Menu {
 		//cc1.Sacar(3000.0f);
 		//cc1.visualizar();
 		
-		ContaPoupanca cp1 = new ContaPoupanca();
-		cp1.setSaldo(1200.0f);
+		//ContaPoupanca cp1 = new ContaPoupanca();
+		//cp1.setSaldo(1200.0f);
 		//cp1.Depositar(2200.0f);
 		//cp1.Sacar(200.0f);
-		cp1.Sacar(2200.0f);
+		//cp1.Sacar(2200.0f);
 		//cp1.visualizar();
 		/*
 		
