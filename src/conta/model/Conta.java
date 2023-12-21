@@ -66,27 +66,24 @@ public abstract class Conta {
 	}
 	
 	//metodo sacar
-	public float Sacar(float valor) {
-		if (this.getSaldo() < valor) {
-			System.out.println("Você não tem saldo suficiente.");
-			return valor;
-		} 
-		this.setSaldo(this.getSaldo()-valor);
-		System.out.println("Valor sacado com sucesso!");
+	public boolean sacar(float valor) { 
 		
-		visualizar();
-		return valor;
+		if(this.getSaldo() < valor) {
+			System.out.println("\n Saldo Insuficiente!");
+			return false;
+		}
+			
+		this.setSaldo(this.getSaldo() - valor);
+		return true;
 	}
-	
+
 	//metodo depositar
-	public float Depositar(float valor) {
-		this.setSaldo(this.getSaldo()+valor);
-		visualizar();
-		return valor;
+	public void depositar(float valor) {
+		this.setSaldo(this.getSaldo() + valor);
 	}
 	
 	
-	
+	//metodo visualizar
 	public void visualizar() {
 		
 		//tipo de conta
